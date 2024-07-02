@@ -12,6 +12,7 @@ function fizzbuzz() {
     });    
 }
 
+
 // a multiple rule checker 
 function checkMult(i,n){
     return (impl.includes(n.toString()) || impl.length == 0) && i%n == 0;
@@ -62,3 +63,4 @@ if(process.argv.length > 2){
 // Now, we run the main function:
 fizzbuzz();
 
+module.exports = fizzbuzz
