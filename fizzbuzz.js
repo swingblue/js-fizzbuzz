@@ -1,6 +1,18 @@
 // This is our main function
 function fizzbuzz() {
-    const limit = parseInt(process.argv[2]);
+    let limit = 0;
+    const readline = require('node:readline');
+    const { stdin: input, stdout: output } = require('node:process');
+
+    const rl = readline.createInterface({ input, output });
+    rl.question('Enter your limit: ', (ans) => {
+        limit = parseInt(ans)
+        rl.close();
+        calcRes(limit);
+    });    
+}
+
+function calcRes(limit){
     for (let i = 1; i <= limit; i++) {
         let text = [];
         if(i%11 == 0){
@@ -34,9 +46,6 @@ function fizzbuzz() {
         }
         
     }
-
-    // Put your code here...
-
 }
 
 // Now, we run the main function:
