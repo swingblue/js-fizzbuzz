@@ -65,6 +65,6 @@ if(process.argv.length > 2){
 }
 
 // Now, we run the main function:
-runfizzbuzz();
+// runfizzbuzz();
 
 module.exports = makeOutput
