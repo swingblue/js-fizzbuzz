@@ -1,6 +1,7 @@
 // This is our main function
 function fizzbuzz() {
-    for (let i = 1; i <= 500; i++) {
+    const limit = parseInt(process.argv[2]);
+    for (let i = 1; i <= limit; i++) {
         let text = [];
         if(i%11 == 0){
             if(i%13 == 0){
