@@ -8,37 +8,37 @@ function runfizzbuzz() {
     rl.question('Enter your limit: ', (ans) => {
         limit = parseInt(ans)
         rl.close();
-        calcRes(limit);
+        printResult(limit);
     });    
 }
 
 // for the unit testing
-function fizzbuzz(i){
+function makeOutput(numberToCheck){
     let text = [];
-    if(checkMult(i,11)){
-        if(checkMult(i,13)){
+    if(checkMultipleRules(numberToCheck,11)){
+        if(checkMultipleRules(numberToCheck,13)){
             text.push("Fezz");
         }
         text.push("Bong");
     } else {
-        if(checkMult(i,3)){
+        if(checkMultipleRules(numberToCheck,3)){
             text.push("Fizz");
         }
-        if(checkMult(i,13)){
+        if(checkMultipleRules(numberToCheck,13)){
             text.push("Fezz");
         }
-        if(checkMult(i,5)){
+        if(checkMultipleRules(numberToCheck,5)){
             text.push("Buzz");
         }
-        if(checkMult(i,7)) {
+        if(checkMultipleRules(numberToCheck,7)) {
             text.push("Bang");
         }
     }
     
     if(text.length==0){
-        console.log(i);
+        return numberToCheck;
     }else {
-        if(checkMult(i,17)){
+        if(checkMultipleRules(numberToCheck,17)){
             return text.reverse().join("");
         } else {
             return text.join("");
@@ -47,23 +47,24 @@ function fizzbuzz(i){
 }
 
 // a multiple rule checker 
-function checkMult(i,n){
-    return (impl.includes(n.toString()) || impl.length == 0) && i%n == 0;
+function checkMultipleRules(number,factor){
+    return (rule.includes(factor.toString()) || rule.length == 0) && number%factor == 0;
 }
 
 // this is the function to calculate what to output
-function calcRes(limit){
+function printResult(limit){
     for (let i = 1; i <= limit; i++) {
-        console.log(fizzbuzz(i))
+        console.log(makeOutput(i));
     }
 }
-let impl = [];
+
+let rule = [];
 // take the rule if specified
 if(process.argv.length > 2){
-    impl = process.argv[2].split(",");
+    rule = process.argv[2].split(",");
 }
 
 // Now, we run the main function:
 runfizzbuzz();
 
-module.exports = fizzbuzz
+module.exports = makeOutput
