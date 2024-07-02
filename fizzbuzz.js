@@ -12,6 +12,7 @@ function fizzbuzz() {
     });    
 }
 
+// a multiple rule checker 
 function checkMult(i,n){
     return (impl.includes(n.toString()) || impl.length == 0) && i%n == 0;
 }
