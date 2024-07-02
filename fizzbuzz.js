@@ -1,32 +1,35 @@
 // This is our main function
 function fizzbuzz() {
-    for (let i = 1; i <= 200; i++) {
-        let text = "";
+    for (let i = 1; i <= 500; i++) {
+        let text = [];
         if(i%11 == 0){
             if(i%13 == 0){
-                text = "FezzBong";
-            }else {
-                text = "Bong";
+                text.push("Fezz");
             }
+            text.push("Bong");
         } else {
             if(i%3 == 0){
-                text += "Fizz";
+                text.push("Fizz");
             }
             if(i%13 == 0){
-                text += "Fezz";
+                text.push("Fezz");
             }
             if(i%5 == 0){
-                text += "Buzz";
+                text.push("Buzz");
             }
             if(i%7 == 0) {
-                text += "Bang";
+                text.push("Bang");
             }
         }
         
-        if(text == ""){
+        if(text.length==0){
             console.log(i);
         }else {
-            console.log(text);
+            if(i%17){
+                console.log(text.reverse().join(""));
+            } else {
+                console.log(text.join(""));
+            }
         }
         
     }
