@@ -1,5 +1,5 @@
 // This is our main function
-function fizzbuzz() {
+function runfizzbuzz() {
     let limit = 0;
     const readline = require('node:readline');
     const { stdin: input, stdout: output } = require('node:process');
@@ -12,6 +12,39 @@ function fizzbuzz() {
     });    
 }
 
+// for the unit testing
+function fizzbuzz(i){
+    let text = [];
+    if(checkMult(i,11)){
+        if(checkMult(i,13)){
+            text.push("Fezz");
+        }
+        text.push("Bong");
+    } else {
+        if(checkMult(i,3)){
+            text.push("Fizz");
+        }
+        if(checkMult(i,13)){
+            text.push("Fezz");
+        }
+        if(checkMult(i,5)){
+            text.push("Buzz");
+        }
+        if(checkMult(i,7)) {
+            text.push("Bang");
+        }
+    }
+    
+    if(text.length==0){
+        console.log(i);
+    }else {
+        if(checkMult(i,17)){
+            return text.reverse().join("");
+        } else {
+            return text.join("");
+        }
+    }
+}
 
 // a multiple rule checker 
 function checkMult(i,n){
@@ -21,37 +54,7 @@ function checkMult(i,n){
 // this is the function to calculate what to output
 function calcRes(limit){
     for (let i = 1; i <= limit; i++) {
-        let text = [];
-        if(checkMult(i,11)){
-            if(checkMult(i,13)){
-                text.push("Fezz");
-            }
-            text.push("Bong");
-        } else {
-            if(checkMult(i,3)){
-                text.push("Fizz");
-            }
-            if(checkMult(i,13)){
-                text.push("Fezz");
-            }
-            if(checkMult(i,5)){
-                text.push("Buzz");
-            }
-            if(checkMult(i,7)) {
-                text.push("Bang");
-            }
-        }
-        
-        if(text.length==0){
-            console.log(i);
-        }else {
-            if(checkMult(i,17)){
-                console.log(text.reverse().join(""));
-            } else {
-                console.log(text.join(""));
-            }
-        }
-        
+        console.log(fizzbuzz(i))
     }
 }
 let impl = [];
@@ -61,6 +64,6 @@ if(process.argv.length > 2){
 }
 
 // Now, we run the main function:
-fizzbuzz();
+runfizzbuzz();
 
 module.exports = fizzbuzz
