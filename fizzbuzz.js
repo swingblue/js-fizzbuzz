@@ -1,17 +1,21 @@
 // This is our main function
 function fizzbuzz() {
     for (let i = 1; i <= 100; i++) {
-        if(i%15 == 0){
-            console.log("FizzBuzz");
+        let text = "";
+        if(i%3 == 0){
+            text += "Fizz";
         }
-        else if(i%3 == 0){
-            console.log("Fizz");
+        if(i%5 == 0){
+            text += "Buzz";
         }
-        else if(i%5 == 0){
-            console.log("Buzz");
+        if(i%7 == 0) {
+            text += "Bang";
         }
-        else{
+        
+        if(text == ""){
             console.log(i);
+        }else {
+            console.log(text);
         }
         
     }
