@@ -12,25 +12,30 @@ function fizzbuzz() {
     });    
 }
 
+function checkMult(i,n){
+    return (impl.includes(n.toString()) || impl.length == 0) && i%n == 0;
+}
+
+// this is the function to calculate what to output
 function calcRes(limit){
     for (let i = 1; i <= limit; i++) {
         let text = [];
-        if(i%11 == 0){
-            if(i%13 == 0){
+        if(checkMult(i,11)){
+            if(checkMult(i,13)){
                 text.push("Fezz");
             }
             text.push("Bong");
         } else {
-            if(i%3 == 0){
+            if(checkMult(i,3)){
                 text.push("Fizz");
             }
-            if(i%13 == 0){
+            if(checkMult(i,13)){
                 text.push("Fezz");
             }
-            if(i%5 == 0){
+            if(checkMult(i,5)){
                 text.push("Buzz");
             }
-            if(i%7 == 0) {
+            if(checkMult(i,7)) {
                 text.push("Bang");
             }
         }
@@ -38,7 +43,7 @@ function calcRes(limit){
         if(text.length==0){
             console.log(i);
         }else {
-            if(i%17){
+            if(checkMult(i,17)){
                 console.log(text.reverse().join(""));
             } else {
                 console.log(text.join(""));
@@ -46,6 +51,11 @@ function calcRes(limit){
         }
         
     }
+}
+let impl = [];
+// take the rule if specified
+if(process.argv.length > 2){
+    impl = process.argv[2].split(",");
 }
 
 // Now, we run the main function:
